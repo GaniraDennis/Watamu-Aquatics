@@ -222,6 +222,248 @@
         .bubble:nth-child(4) { width: 30px; height: 30px; right: 30%; animation-delay: 1s; }
         .bubble:nth-child(5) { width: 50px; height: 50px; right: 10%; animation-delay: 3s; }
 
+        /* Enhanced Water Bubbles Background */
+.bg-bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.water-bubble {
+    position: absolute;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(0, 207, 255, 0.3), rgba(0, 207, 255, 0.1));
+    border: 1px solid rgba(0, 207, 255, 0.2);
+    border-radius: 50%;
+    animation: bubbleFloat 8s infinite linear;
+    opacity: 0;
+}
+
+.water-bubble::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 30%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.water-bubble::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    width: 15%;
+    height: 15%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+@keyframes bubbleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) scale(0.5) rotate(36deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(50vh) scale(1) rotate(180deg);
+    }
+    90% {
+        opacity: 0.8;
+        transform: translateY(10vh) scale(0.8) rotate(324deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10vh) scale(0.3) rotate(360deg);
+    }
+}
+
+/* Different bubble sizes and speeds */
+.water-bubble:nth-child(1) { 
+    left: 5%; 
+    width: 15px; 
+    height: 15px; 
+    animation-delay: 0s; 
+    animation-duration: 6s;
+}
+.water-bubble:nth-child(2) { 
+    left: 15%; 
+    width: 25px; 
+    height: 25px; 
+    animation-delay: 1s; 
+    animation-duration: 8s;
+}
+.water-bubble:nth-child(3) { 
+    left: 25%; 
+    width: 10px; 
+    height: 10px; 
+    animation-delay: 2s; 
+    animation-duration: 5s;
+}
+.water-bubble:nth-child(4) { 
+    left: 35%; 
+    width: 30px; 
+    height: 30px; 
+    animation-delay: 3s; 
+    animation-duration: 9s;
+}
+.water-bubble:nth-child(5) { 
+    left: 45%; 
+    width: 20px; 
+    height: 20px; 
+    animation-delay: 4s; 
+    animation-duration: 7s;
+}
+.water-bubble:nth-child(6) { 
+    left: 55%; 
+    width: 12px; 
+    height: 12px; 
+    animation-delay: 5s; 
+    animation-duration: 6s;
+}
+.water-bubble:nth-child(7) { 
+    left: 65%; 
+    width: 35px; 
+    height: 35px; 
+    animation-delay: 6s; 
+    animation-duration: 10s;
+}
+.water-bubble:nth-child(8) { 
+    left: 75%; 
+    width: 18px; 
+    height: 18px; 
+    animation-delay: 7s; 
+    animation-duration: 8s;
+}
+.water-bubble:nth-child(9) { 
+    left: 85%; 
+    width: 22px; 
+    height: 22px; 
+    animation-delay: 8s; 
+    animation-duration: 7s;
+}
+.water-bubble:nth-child(10) { 
+    left: 95%; 
+    width: 14px; 
+    height: 14px; 
+    animation-delay: 9s; 
+    animation-duration: 6s;
+}
+
+/* Additional bubble layers for depth */
+.bubble-layer-2 {
+    animation-delay: 2s;
+}
+
+.bubble-layer-2 .water-bubble:nth-child(1) { 
+    left: 10%; 
+    width: 8px; 
+    height: 8px; 
+    animation-delay: 1s; 
+    animation-duration: 5s;
+}
+.bubble-layer-2 .water-bubble:nth-child(2) { 
+    left: 30%; 
+    width: 28px; 
+    height: 28px; 
+    animation-delay: 3s; 
+    animation-duration: 9s;
+}
+.bubble-layer-2 .water-bubble:nth-child(3) { 
+    left: 50%; 
+    width: 16px; 
+    height: 16px; 
+    animation-delay: 5s; 
+    animation-duration: 7s;
+}
+.bubble-layer-2 .water-bubble:nth-child(4) { 
+    left: 70%; 
+    width: 24px; 
+    height: 24px; 
+    animation-delay: 7s; 
+    animation-duration: 8s;
+}
+.bubble-layer-2 .water-bubble:nth-child(5) { 
+    left: 90%; 
+    width: 12px; 
+    height: 12px; 
+    animation-delay: 9s; 
+    animation-duration: 6s;
+}
+
+/* Popping bubble animation */
+.bubble-pop {
+    animation: bubblePop 12s infinite linear;
+}
+
+@keyframes bubblePop {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(80vh) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(20vh) scale(1.2);
+    }
+    90% {
+        opacity: 0.5;
+        transform: translateY(10vh) scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0vh) scale(0);
+    }
+}
+
+/* Wobble effect for more realistic movement */
+.bubble-wobble {
+    animation: bubbleWobble 10s infinite linear;
+}
+
+@keyframes bubbleWobble {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) translateX(0px) scale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) translateX(10px) scale(0.8);
+    }
+    30% {
+        transform: translateY(70vh) translateX(-5px) scale(1);
+    }
+    50% {
+        transform: translateY(50vh) translateX(15px) scale(1.1);
+    }
+    70% {
+        transform: translateY(30vh) translateX(-10px) scale(0.9);
+    }
+    90% {
+        opacity: 0.7;
+        transform: translateY(10vh) translateX(5px) scale(0.6);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10vh) translateX(0px) scale(0);
+    }
+}
+
         /* Section Styles */
         .section {
             padding: 5rem 0;
@@ -714,6 +956,37 @@
     </style>
 </head>
 <body>
+    <!-- Enhanced Water Bubbles Background -->
+<div class="bg-bubbles">
+    <!-- Layer 1 - Main bubbles -->
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    <div class="water-bubble"></div>
+    
+    <!-- Layer 2 - Secondary bubbles -->
+    <div class="bubble-layer-2">
+        <div class="water-bubble bubble-pop"></div>
+        <div class="water-bubble bubble-wobble"></div>
+        <div class="water-bubble bubble-pop"></div>
+        <div class="water-bubble bubble-wobble"></div>
+        <div class="water-bubble bubble-pop"></div>
+    </div>
+    
+    <!-- Layer 3 - Tiny bubbles -->
+    <div class="water-bubble" style="left: 8%; width: 6px; height: 6px; animation-delay: 0.5s; animation-duration: 4s;"></div>
+    <div class="water-bubble" style="left: 23%; width: 8px; height: 8px; animation-delay: 2.5s; animation-duration: 5s;"></div>
+    <div class="water-bubble" style="left: 38%; width: 5px; height: 5px; animation-delay: 4.5s; animation-duration: 3s;"></div>
+    <div class="water-bubble" style="left: 53%; width: 7px; height: 7px; animation-delay: 6.5s; animation-duration: 4s;"></div>
+    <div class="water-bubble" style="left: 68%; width: 9px; height: 9px; animation-delay: 8.5s; animation-duration: 5s;"></div>
+    <div class="water-bubble" style="left: 83%; width: 6px; height: 6px; animation-delay: 10.5s; animation-duration: 4s;"></div>
+</div>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -756,7 +1029,7 @@
             <h2 class="section-title fade-in">Meet Coach Viv</h2>
             <div class="about-content">
                 <div class="about-text slide-in-left">
-                    <p>Coach Viv is a certified professional swimming coach with over 10 years of experience training beginners, pros, and children in safe, effective swimming techniques along the beautiful Kenyan coast.</p>
+                    <p>Vivian Marigi (Coach Viv) is a certified professional swimming coach with over 10 years of experience training beginners, pros, and children in safe, effective swimming techniques along the beautiful Kenyan coast.</p>
                     <br>
                     <p>With a passion for water safety and aquatic excellence, Coach Viv has helped hundreds of students overcome their fears, master new strokes, and develop confidence in the water. Her personalized approach ensures every swimmer receives the attention they need to succeed.</p>
                     <br>
@@ -936,11 +1209,11 @@
                 <div class="contact-info slide-in-left">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>coachviv@watamuaquatics.com</span>
+                        <span>watamu@aquatics.com</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+254 712 345678</span>
+                        <span>+254 702 635166</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -990,12 +1263,12 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-            <p>&copy; 2025 Watamu Aquatics. All rights reserved. | Designed with ❤️ for water lovers</p>
+            <p>&copy; 2024 Watamu Aquatics. All rights reserved. | Designed with ❤️ for water lovers</p>
         </div>
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/254712345678" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/254702635166" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1058,7 +1331,7 @@
             });
         });
 
-        // Form submission
+        // Form submission with email functionality
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -1075,18 +1348,30 @@
                 return;
             }
             
+            // Create email content
+            const subject = `Swimming Inquiry from ${name}`;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AInterested Program: ${program}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:watamu@aquatics.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            
             // Simulate form submission
             const submitBtn = this.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.textContent = 'Opening Email...';
             submitBtn.disabled = true;
             
             setTimeout(() => {
-                alert('Thank you for your message! Coach Viv will get back to you soon.');
+                // Open email client
+                window.location.href = mailtoLink;
+                
+                // Reset form
                 this.reset();
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
+                
+                alert('Your email client should open now. If not, please email us directly at watamu@aquatics.com');
+            }, 1000);
         });
 
         // Add floating animation to bubbles
@@ -1174,6 +1459,48 @@
                 item.style.animationDelay = `${index * 0.15}s`;
             });
         });
+
+// Dynamic bubble generation
+function createRandomBubble() {
+    const bubble = document.createElement('div');
+    bubble.className = 'water-bubble';
+    
+    // Random properties
+    const size = Math.random() * 25 + 5; // 5-30px
+    const left = Math.random() * 100; // 0-100%
+    const duration = Math.random() * 5 + 5; // 5-10s
+    const delay = Math.random() * 2; // 0-2s delay
+    
+    bubble.style.width = size + 'px';
+    bubble.style.height = size + 'px';
+    bubble.style.left = left + '%';
+    bubble.style.animationDuration = duration + 's';
+    bubble.style.animationDelay = delay + 's';
+    
+    // Add random animation type
+    const animations = ['', 'bubble-pop', 'bubble-wobble'];
+    const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+    if (randomAnimation) {
+        bubble.classList.add(randomAnimation);
+    }
+    
+    document.querySelector('.bg-bubbles').appendChild(bubble);
+    
+    // Remove bubble after animation completes
+    setTimeout(() => {
+        if (bubble.parentNode) {
+            bubble.parentNode.removeChild(bubble);
+        }
+    }, (duration + delay) * 1000);
+}
+
+// Generate bubbles continuously
+setInterval(createRandomBubble, 800); // New bubble every 800ms
+
+// Generate initial burst of bubbles
+for (let i = 0; i < 5; i++) {
+    setTimeout(createRandomBubble, i * 200);
+}
     </script>
 </body>
 </html>
